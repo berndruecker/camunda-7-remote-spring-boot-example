@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0udaupe" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="playground" name="Playground" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0n78rvj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0n78rvj" sourceRef="StartEvent_1" targetRef="ServiceTaskCheck" />
+    <bpmn:endEvent id="Event_0bhcp6i">
+      <bpmn:incoming>Flow_0ky5wkr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0rx2l31" sourceRef="ServiceTaskCheck" targetRef="Gateway1" />
+    <bpmn:serviceTask id="ServiceTaskCheck" name="Check if input is a number" camunda:type="external" camunda:topic="check-number">
+      <bpmn:incoming>Flow_0n78rvj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rx2l31</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0ky5wkr" sourceRef="UserTask1" targetRef="Event_0bhcp6i" />
+    <bpmn:userTask id="UserTask1" name="Some User task" camunda:assignee="demo">
+      <bpmn:incoming>Flow_1cr8jwf</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ky5wkr</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway1">
+      <bpmn:incoming>Flow_0rx2l31</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cr8jwf</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11vj3v3</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1cr8jwf" name="number" sourceRef="Gateway1" targetRef="UserTask1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{isNumber == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_0ur1euj">
+      <bpmn:incoming>Flow_11vj3v3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_11vj3v3" name="no number" sourceRef="Gateway1" targetRef="Event_0ur1euj">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{isNumber == false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="playground">
+      <bpmndi:BPMNEdge id="Flow_0n78rvj_di" bpmnElement="Flow_0n78rvj">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rx2l31_di" bpmnElement="Flow_0rx2l31">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="415" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ky5wkr_di" bpmnElement="Flow_0ky5wkr">
+        <di:waypoint x="780" y="117" />
+        <di:waypoint x="822" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cr8jwf_di" bpmnElement="Flow_1cr8jwf">
+        <di:waypoint x="465" y="117" />
+        <di:waypoint x="680" y="117" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="490" y="99" width="39" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11vj3v3_di" bpmnElement="Flow_11vj3v3">
+        <di:waypoint x="440" y="142" />
+        <di:waypoint x="440" y="302" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="443" y="158" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1nwspgv_di" bpmnElement="ServiceTaskCheck">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1jvddib_di" bpmnElement="Gateway1" isMarkerVisible="true">
+        <dc:Bounds x="415" y="92" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0bhcp6i_di" bpmnElement="Event_0bhcp6i">
+        <dc:Bounds x="822" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0bz9saw_di" bpmnElement="UserTask1">
+        <dc:Bounds x="680" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ur1euj_di" bpmnElement="Event_0ur1euj">
+        <dc:Bounds x="422" y="302" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
