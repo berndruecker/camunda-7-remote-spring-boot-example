@@ -1,11 +1,10 @@
 package io.berndruecker.demo.springboot;
 
-import io.berndruecker.demo.springboot.starter.CamundaHistoryApi;
 import org.camunda.bpm.client.ExternalTaskClient;
 import org.camunda.bpm.client.topic.TopicSubscription;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.api.ProcessDefinitionApi;
-import org.openapitools.client.model.*;
+import org.camunda.community.rest.client.api.ProcessDefinitionApi;
+import org.camunda.community.rest.client.dto.*;
+import org.camunda.community.rest.client.invoker.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
