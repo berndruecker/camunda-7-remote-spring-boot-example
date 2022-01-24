@@ -1,4 +1,4 @@
-Example showing how to connect to a remote Camunda Run from Spring boot for external taks and OpenAPI REST calls
+Example showing how to connect to a remote Camunda Run from Spring boot for external taks and OpenAPI REST calls.
 
 # What's this?
 
@@ -15,8 +15,8 @@ This example:
 # How to run?
 
 * Start [Camunda Run](https://docs.camunda.org/manual/latest/user-guide/camunda-bpm-run/#starting-camunda-platform-run-using-docker), for example 
-** [Download, unzip and start the distribution](https://docs.camunda.org/manual/latest/user-guide/camunda-bpm-run/#starting-with-camunda-platform-run)
-** [Use Docker image](https://docs.camunda.org/manual/latest/user-guide/camunda-bpm-run/#starting-camunda-platform-run-using-docker)
+  * [Download, unzip and start the distribution](https://docs.camunda.org/manual/latest/user-guide/camunda-bpm-run/#starting-with-camunda-platform-run)
+  * [Use Docker image](https://docs.camunda.org/manual/latest/user-guide/camunda-bpm-run/#starting-camunda-platform-run-using-docker)
 * Download and tun this Spring Boot app via your favorite IDE
 * Access one of the REST endpoints below
 
