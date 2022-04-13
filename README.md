@@ -1,3 +1,4 @@
+[![Camunda Platform 7](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%207-26d07c)](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%207-26d07c)
 Example showing how to connect to a remote Camunda Run from Spring boot for external taks and OpenAPI REST calls.
 
 # What's this?
