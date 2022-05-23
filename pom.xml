@@ -5,7 +5,6 @@
   <version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<camunda.version>7.16.0</camunda.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -14,14 +13,14 @@
 		<dependency>
 			<groupId>org.camunda.community</groupId>
 			<artifactId>camunda-engine-rest-client-complete-springboot-starter</artifactId>
-			<version>7.16.0-alpha1</version>
+			<version>7.17.0</version>
 		</dependency>
 
 		<!-- Required to offer a REST API via Spring Webflux (of course you could use any other framework too) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
-			<version>2.5.4</version>
+			<version>2.6.7</version>
 		</dependency>
 
 	</dependencies>
