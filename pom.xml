@@ -13,7 +13,7 @@
 		<dependency>
 			<groupId>org.camunda.community</groupId>
 			<artifactId>camunda-engine-rest-client-complete-springboot-starter</artifactId>
-			<version>7.17.2</version>
+			<version>7.17.3</version>
 		</dependency>
 
 		<!-- Required to offer a REST API via Spring Webflux (of course you could use any other framework too) -->
